@@ -16,5 +16,5 @@
       "name": "res"
     }
   ],
-  "scriptFile": "../dist/api/index.js"
+  "scriptFile": "..\\dist\\digital-message\\index.js"
 }
