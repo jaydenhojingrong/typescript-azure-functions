@@ -12,10 +12,12 @@
     "test": "echo \"No tests yet...\""
   },
   "dependencies": {
-    "case": "^1.6.1"
+    "@types/node": "^18.7.19",
+    "case": "^1.6.1",
+    "node-fetch": "^2.6.7"
   },
   "devDependencies": {
     "@azure/functions": "^1.0.1-beta2",
-    "typescript": "^3.3.3"
+    "typescript": "^3.9.10"
   }
 }

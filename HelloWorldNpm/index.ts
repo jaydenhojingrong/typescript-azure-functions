@@ -1,13 +1,25 @@
-import { AzureFunction, Context, HttpRequest } from "@azure/functions"
-import { upper } from "case"
+import { AzureFunction, Context, HttpRequest } from "@azure/functions";
+import { postWhatsApp } from "./WhatsApp";
+import { postLine } from "./Line";
+import { MessageBirdResponse } from "./MessageBirdResponse";
 
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
     context.log('HTTP trigger function processed a request.');
-    const name = req.query.name || (req.body && req.body.name) || "friend";
-    
+    let mbResponse: MessageBirdResponse;
+
+    if (req.body.channel == "WhatsApp"){
+      mbResponse = await postWhatsApp(req.body.message);
+    }
+    else if (req.body.channel == "LINE"){
+      mbResponse = await postLine(req.body.message);
+    }
+
     context.res = {
         // status: 200, /* Defaults to 200 */
-        body: upper(`Hello, ${name}!`)
+        body: (JSON.stringify({
+          "code": 200,
+          "system_message": mbResponse["status"]
+        }))
     };
 };
 
