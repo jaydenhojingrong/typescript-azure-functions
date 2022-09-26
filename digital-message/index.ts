@@ -2,7 +2,6 @@ import { AzureFunction, Context, HttpRequest } from "@azure/functions";
 import { postWhatsApp } from "./WhatsApp";
 import { postLine } from "./Line";
 import { MessageBirdResponse } from "./MessageBirdResponse";
-// test
 
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
     context.log('HTTP trigger function processed a request.');
@@ -14,7 +13,6 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
     else if (req.body.channel == "LINE"){
       mbResponse = await postLine(req.body.message);
     }
-
     context.res = {
         // status: 200, /* Defaults to 200 */
         body: (JSON.stringify({

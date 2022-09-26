@@ -26,7 +26,7 @@ async function postWhatsApp(message): Promise<MessageBirdResponse> {
         }),
         headers:{
           'Content-type': 'application/json; charset=UTF-8',
-          'Authorization': 'AccessKey oETSPowlijFMsL0i8bridN4Jv',
+          'Authorization': 'AccessKey 00raAeKMoPItZScMpdXgGp989',
         }
       });
   
