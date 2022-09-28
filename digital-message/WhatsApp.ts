@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 import { MessageBirdResponse } from "./MessageBirdResponse";
 
-async function postWhatsApp(message): Promise<MessageBirdResponse> {
+async function postWhatsApp(message, key): Promise<MessageBirdResponse> {
     try {
       const response = await fetch('https://conversations.messagebird.com/v1/send',
       {
@@ -26,7 +26,7 @@ async function postWhatsApp(message): Promise<MessageBirdResponse> {
         }),
         headers:{
           'Content-type': 'application/json; charset=UTF-8',
-          'Authorization': 'AccessKey 00raAeKMoPItZScMpdXgGp989',
+          'Authorization': `AccessKey ${key}`,
         }
       });
   
